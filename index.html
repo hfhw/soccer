@@ -35,17 +35,17 @@
 <body class="bg-dark-bg text-gray-100 min-h-screen flex flex-col">
     <header class="bg-dark-secondary py-6 px-4 shadow-lg">
         <div class="container mx-auto">
-            <h1 class="text-4xl font-bold text-light-text mb-4 text-center float">Football Results and Data</h1>
+            <h1 class="text-3xl md:text-4xl font-bold text-light-text mb-4 text-center float">Football Results and Data</h1>
             <nav class="mb-4">
-                <ul class="flex justify-center space-x-4">
-                    <li><a href="#results" class="hover:text-light-text transition-colors">Results</a></li>
-                    <li><a href="#standings" class="hover:text-light-text transition-colors">Standings</a></li>
-                    <li><a href="#upcoming" class="hover:text-light-text transition-colors">Upcoming</a></li>
+                <ul class="flex flex-wrap justify-center gap-4 md:space-x-4">
+                    <li><a href="#results" class="block py-2 px-3 hover:text-light-text transition-colors">Results</a></li>
+                    <li><a href="#standings" class="block py-2 px-3 hover:text-light-text transition-colors">Standings</a></li>
+                    <li><a href="#upcoming" class="block py-2 px-3 hover:text-light-text transition-colors">Upcoming</a></li>
                 </ul>
             </nav>
-            <div class="max-w-md mx-auto">
+            <div class="max-w-md mx-auto px-4 md:px-0">
                 <label for="league-select" class="block text-sm font-medium text-gray-300 mb-2">Select League:</label>
-                <select id="league-select" class="w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-light-text focus:border-light-text sm:text-sm rounded-md bg-dark-accent text-gray-100 transition-all duration-300 ease-in-out hover:bg-opacity-80">
+                <select id="league-select" class="w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-light-text focus:border-light-text sm:text-sm rounded-md bg-dark-accent text-gray-100">
                     <option value="CL">UEFA Champions League</option>
                     <option value="BL1">Bundesliga</option>
                     <option value="DED">Eredivisie</option>
@@ -63,9 +63,11 @@
     </header>
 
     <main class="flex-grow container mx-auto px-4 py-8">
-        <section id="results" class="mb-12 bg-dark-secondary rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
-            <h2 class="text-2xl font-semibold mb-4 text-light-text">Latest Results</h2>
-            <div id="latest-results" class="animate-pulse-slow"></div>
+        <section id="results" class="mb-8 md:mb-12 bg-dark-secondary rounded-lg shadow-lg p-4 md:p-6 transform hover:scale-105 transition-transform duration-300">
+            <h2 class="text-xl md:text-2xl font-semibold mb-4 text-light-text">Latest Results</h2>
+            <div id="latest-results" class="animate-pulse-slow overflow-x-auto">
+                <!-- Add overflow-x-auto to handle table overflow on mobile -->
+            </div>
         </section>
 
         <section id="standings" class="mb-12 bg-dark-secondary rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
