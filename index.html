@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Results and Data</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#1a1a2e',
+                        'dark-secondary': '#16213e',
+                        'dark-accent': '#0f3460',
+                        'light-text': '#e94560',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .float { animation: float 3s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-dark-bg text-gray-100 min-h-screen flex flex-col">
+    <header class="bg-dark-secondary py-6 px-4 shadow-lg">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-bold text-light-text mb-4 text-center float">Football Results and Data</h1>
+            <nav class="mb-4">
+                <ul class="flex justify-center space-x-4">
+                    <li><a href="#results" class="hover:text-light-text transition-colors">Results</a></li>
+                    <li><a href="#standings" class="hover:text-light-text transition-colors">Standings</a></li>
+                    <li><a href="#upcoming" class="hover:text-light-text transition-colors">Upcoming</a></li>
+                </ul>
+            </nav>
+            <div class="max-w-md mx-auto">
+                <label for="league-select" class="block text-sm font-medium text-gray-300 mb-2">Select League:</label>
+                <select id="league-select" class="w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-light-text focus:border-light-text sm:text-sm rounded-md bg-dark-accent text-gray-100 transition-all duration-300 ease-in-out hover:bg-opacity-80">
+                    <option value="CL">UEFA Champions League</option>
+                    <option value="BL1">Bundesliga</option>
+                    <option value="DED">Eredivisie</option>
+                    <option value="BSA">Campeonato Brasileiro Série A</option>
+                    <option value="PD">Primera Division</option>
+                    <option value="FL1">Ligue 1</option>
+                    <option value="ELC">Championship</option>
+                    <option value="PPL">Primeira Liga</option>
+                    <option value="EC">European Championship</option>
+                    <option value="SA">Serie A</option>
+                    <option value="PL" selected>Premier League</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow container mx-auto px-4 py-8">
+        <section id="results" class="mb-12 bg-dark-secondary rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+            <h2 class="text-2xl font-semibold mb-4 text-light-text">Latest Results</h2>
+            <div id="latest-results" class="animate-pulse-slow"></div>
+        </section>
+
+        <section id="standings" class="mb-12 bg-dark-secondary rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+            <h2 class="text-2xl font-semibold mb-4 text-light-text">League Standings</h2>
+            <div id="league-standings"></div>
+        </section>
+
+        <section id="upcoming" class="bg-dark-secondary rounded-lg shadow-lg p-6 transform hover:scale-105 transition-transform duration-300">
+            <h2 class="text-2xl font-semibold mb-4 text-light-text">Upcoming Matches</h2>
+            <div id="upcoming-matches"></div>
+        </section>
+    </main>
+
+    <footer class="bg-dark-secondary py-4 text-center">
+        <p class="text-sm text-gray-400">&copy; 2023 Football Results and Data. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
