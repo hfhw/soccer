@@ -5,28 +5,18 @@ const BASE_URL = 'https://api.football-data.org/v4';
 
 let selectedLeague = 'PL'; // Default to Premier League
 
-async function fetchData(endpoint) {
-    const corsProxy = 'https://cors-anywhere.herokuapp.com/';
-    try {
-        console.log(`Fetching data from: ${corsProxy}${BASE_URL}${endpoint}`);
-        const response = await fetch(`${corsProxy}${BASE_URL}${endpoint}`, {
-            headers: { 
-                'X-Auth-Token': API_KEY,
-                'Origin': 'http://localhost:8080'
-            }
-        });
-        console.log('Response status:', response.status);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const data = await response.json();
-        console.log('Received data:', data);
-        return data;
-    } catch (error) {
-        console.error('Error fetching data:', error);
-        throw error;
-    }
+export default function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', '*'); 
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  
+  res.status(200).json({ message: 'Hello World' });
 }
+
 
 async function displayLatestResults() {
     try {
