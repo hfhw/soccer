@@ -1,0 +1,5 @@
+streamlit==1.33.0
+spotipy==2.23.0
+openai==1.14.1
+python-dotenv==1.0.1
+pandas==2.2.2
